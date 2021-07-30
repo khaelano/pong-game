@@ -60,8 +60,8 @@ def main():
     paddle_right.spawn()
 
     #Spawn ball
-    deltaX= 2
-    deltaY = 2
+    deltaX= 4
+    deltaY = 4
     ball = Ball()
     ball.spawn()
 
@@ -90,9 +90,11 @@ def main():
             deltaY *= -1
         #Left border
         if ball.getx() < -390:
+            deltaX *= -1
             ball.reset()
         #Right border
         if ball.getx() > 390:
+            deltaX *= -1
             ball.reset()
 
         ball.mx(deltaX)
