@@ -24,6 +24,10 @@ def main():
             if move >= -250:
                 move -= 20
                 self.paddle.sety(move)
+        def getx(self): 
+            return self.paddle.xcor()
+        def gety(self):
+            return self.paddle.ycor()
 
     class Ball():
         def spawn(self):
@@ -75,7 +79,7 @@ def main():
     window.onkeypress(paddle_right.up, 'Up')
     window.onkeypress(paddle_right.down, 'Down')
 
-    #Window loop
+    #Main loop
     while True:
         #Update window
         window.update()
@@ -96,6 +100,10 @@ def main():
         if ball.getx() > 390:
             deltaX *= -1
             ball.reset()
+
+        #Paddle right
+        if ball.getx <= paddle_right.getx():
+            pass
 
         ball.mx(deltaX)
         ball.my(deltaY)
